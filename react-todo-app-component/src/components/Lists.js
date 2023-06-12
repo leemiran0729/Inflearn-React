@@ -13,6 +13,7 @@ const Lists = React.memo(({ todoData, setTodoData }) => {
     //변경하려는 아이템을 도착 index에 넣음
     newTodoData.splice(result.destination.index, 0, reorderedItem);
     setTodoData(newTodoData);
+    localStorage.setItem("todoData", JSON.stringify(newTodoData));
   };
 
   return (

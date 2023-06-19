@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../api/axios";
+import "./Row.css";
 
 const Row = ({ isLargeRow, title, id, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
@@ -14,7 +15,7 @@ const Row = ({ isLargeRow, title, id, fetchUrl }) => {
   };
 
   return (
-    <section>
+    <section className="row">
       <h2>{title}</h2>
       <div className="slider">
         <div className="slider__arrow-left">

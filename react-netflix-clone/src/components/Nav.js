@@ -3,6 +3,7 @@ import "./Nav.css";
 
 const Nav = () => {
   const [show, setShow] = useState(false);
+  const [searchValue, setSearchvalue] = useState("");
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -17,6 +18,10 @@ const Nav = () => {
     };
   }, []);
 
+  const handleChange = (e) => {
+    setSearchvalue(e.target.value);
+  };
+
   return (
     <nav className={`nav ${show && "nav__black"}`}>
       <img
@@ -24,6 +29,13 @@ const Nav = () => {
         alt="Netflix logo"
         className="nav__logo"
         onClick={() => window.location.reload()}
+      />
+      <input
+        value={searchValue}
+        onChange={handleChange}
+        className="nav__input"
+        type="text"
+        placeholder="영화를 검색해주세요."
       />
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"

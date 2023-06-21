@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Nav.css";
 
 const Nav = () => {
   const [show, setShow] = useState(false);
   const [searchValue, setSearchvalue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -20,6 +22,7 @@ const Nav = () => {
 
   const handleChange = (e) => {
     setSearchvalue(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
   };
 
   return (

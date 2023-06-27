@@ -1,8 +1,8 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getAllPostIds, getPostData } from "../lib/post";
+import { getAllPostIds, getPostData } from "../../lib/post";
 import Head from "next/head";
-import postStyles from "../styles/Post.module.css";
+import postStyles from "../../styles/Post.module.css";
 
 const Post = ({
   postData,

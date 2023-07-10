@@ -4,14 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
-import counter from "./reducers";
+import rootReducer from "./reducers";
 import { subscribe } from "diagnostics_channel";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
-const store = createStore(counter);
+const store = createStore(rootReducer);
 
 const render = () =>
   root.render(

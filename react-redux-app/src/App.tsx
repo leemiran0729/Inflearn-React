@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "./reducers";
-import axios from "axios";
+import { fetchPosts } from "./actions/posts";
 
 type Props = {
   onIncrement: () => void;
@@ -22,15 +22,6 @@ function App({ onIncrement, onDecrement }: Props) {
   const counter = useSelector((state: RootState) => state.counter);
   const posts: Post[] = useSelector((state: RootState) => state.posts);
   const [todoValue, setTodoValue] = useState("");
-
-  const fetchPosts = (): any => {
-    return async function fetchPostsThunk(dispatch: any, getState: any) {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      dispatch({ type: "FETCH_POSTS", payload: response.data });
-    };
-  };
 
   useEffect(() => {
     //dispatch가 객체가 아닌 함수를 dispatch -> redux thunk로 해결하자!
